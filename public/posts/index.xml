@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Scraly tech blog</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on Scraly tech blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 May 2018 18:31:14 +0200</lastBuildDate>
+    
+	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wish List</title>
+      <link>http://example.org/posts/wish-list/</link>
+      <pubDate>Tue, 01 May 2018 18:31:14 +0200</pubDate>
+      
+      <guid>http://example.org/posts/wish-list/</guid>
+      <description>When I grow up I would like &amp;hellip; Several years ago, if I had been asked what I would have liked to do when I grew up, I think I would never have thought of making the list that you will see below.
+I have been a developer for more than 12 years, doing Front, back, devops, big data and a period as lead developer. I am passionate about my work and I like to share with others.</description>
+    </item>
+    
+  </channel>
+</rss>

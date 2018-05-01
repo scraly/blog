@@ -1,0 +1,24 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Scraly tech blog"
+theme = "bootstrap"
+
+# Pagination
+paginate = 10
+paginatePath = "page"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Links format
+
+[permalinks]
+post = "/:year/:month/:title/"
+
+[params]
+  # Main sections (currently used for the recent posts in the sidebar)
+  mainSections = ["post"]
+
+  # Default author
+  author = "Aurélie Vache"

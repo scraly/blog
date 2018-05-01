@@ -1,0 +1,13 @@
+[submodule "blog/themes/ananke"]
+	path = blog/themes/ananke
+	url = https://github.com/budparr/gohugo-theme-ananke.git
+[submodule "techblog/themes/ananke"]
+	path = techblog/themes/ananke
+	url = https://github.com/budparr/gohugo-theme-ananke.git
+[submodule "themes/bootstrap"]
+	path = themes/bootstrap
+	url = https://github.com/Xzya/hugo-bootstrap.git
+[submodule "public"]
+	path = public
+	url = git@github.com:scraly/scraly.github.io.git
+	branch = master

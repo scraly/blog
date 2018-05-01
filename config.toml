@@ -2,6 +2,7 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Scraly tech blog"
 theme = "bootstrap"
+enableEmoji = true
 
 # Pagination
 paginate = 10

@@ -1,9 +1,15 @@
 ---
-title: "Wish List"
+title: "When I grow up I would like ..."
 date: 2018-05-01T18:31:14+02:00
+tags: [
+    "objectives",
+    "myself",
+]
+categories: [
+    "Myself",
+]
 ---
-When I grow up I would like ...
----------
+
 Several years ago, if I had been asked what I would have liked to do when I grew up, I think I would never have thought of making the list that you will see below.
 
 I have been a developer for more than 12 years, doing Front, back, devops, big data and a period as lead developer.

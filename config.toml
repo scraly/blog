@@ -1,8 +1,9 @@
-baseURL = "http://example.org/"
+baseURL = "https://scraly.github.io/"
 languageCode = "en-us"
 title = "Scraly tech blog"
-theme = "bootstrap"
+theme = "hemingway"
 enableEmoji = true
+copyright = "&copy; <a href=\"http://scraly.com\">Aurélie Vache</a> 2018"
 
 # Pagination
 paginate = 10
@@ -23,3 +24,34 @@ post = "/:year/:month/:title/"
 
   # Default author
   author = "Aurélie Vache"
+
+  # tagline = "the tagline for this website"
+
+  [params.highlight]
+  style = "github"
+  languages = ["go", "dockerfile"]
+
+  [[params.social]]
+  url = "https://github.com/scraly"
+  fa_icon = "fa-github"
+
+  [[params.social]]
+  url = "https://twitter.com/aurelievache"
+  fa_icon = "fa-twitter"
+
+  [[params.social]]
+  url = "https://www.linkedin.com/in/aurelievache/"
+  fa_icon = "fa-linkedin"
+
+  [[params.social]]
+  url = "https://scraly.com"
+  fa_icon = "fa-globe"
+
+[author]
+    name = "Aurélie Vache"       #Author name
+    github = "scraly"     #Github username
+    twitter = "aurelievache"    #Twitter username
+    #linkedin = ""   #LinkedIn username
+
+# pygmentsCodeFences = true
+# pygmentsUseClasses = true

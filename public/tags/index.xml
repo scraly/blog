@@ -2,13 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Scraly tech blog</title>
-    <link>http://example.org/tags/</link>
+    <link>https://scraly.github.io/tags/</link>
     <description>Recent content in Tags on Scraly tech blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>&amp;copy; &lt;a href=&#34;http://scraly.com&#34;&gt;Aurélie Vache&lt;/a&gt; 2018</copyright>
+    <lastBuildDate>Tue, 01 May 2018 18:31:14 +0200</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://scraly.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Myself</title>
+      <link>https://scraly.github.io/tags/myself/</link>
+      <pubDate>Tue, 01 May 2018 18:31:14 +0200</pubDate>
+      
+      <guid>https://scraly.github.io/tags/myself/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Objectives</title>
+      <link>https://scraly.github.io/tags/objectives/</link>
+      <pubDate>Tue, 01 May 2018 18:31:14 +0200</pubDate>
+      
+      <guid>https://scraly.github.io/tags/objectives/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

@@ -11,3 +11,6 @@
 	path = public
 	url = git@github.com:scraly/scraly.github.io.git
 	branch = master
+[submodule "themes/jane"]
+	path = themes/jane
+	url = https://github.com/xianmin/hugo-theme-jane.git

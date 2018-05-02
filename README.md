@@ -2,7 +2,7 @@
 
 Welcome to my new tech blog ;-).
 
-This blog is based on hugo.
+This blog is based on hugo and use [hemingway](https://themes.gohugo.io/hemingway/) theme.
 
 ## Add new post message
 

@@ -28,6 +28,9 @@ post = "/:year/:month/:title/"
   # Default author
   author = "Aurélie Vache"
 
+  site_name = "Scraly/Aurélie Vache tech blog"
+  description = "" 
+
   # tagline = "the tagline for this website"
 
   [params.highlight]

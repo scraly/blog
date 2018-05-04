@@ -119,4 +119,4 @@ The solution is to build the golang binary with librdkafka as a static library. 
 
 `$ go build -tags static -ldflags "${ldflags}" -o bin/main${ext} ${repo_path}`
 
-Good!
+That's it!

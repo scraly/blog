@@ -4,7 +4,7 @@ title = "Scraly tech blog"
 theme = "hemingway"
 enableEmoji = true
 copyright = "&copy; <a href=\"http://scraly.com\">Aurélie Vache</a> 2018"
-googleAnalytics = ""
+googleAnalytics = "UA-118651176-1"
 
 # Pagination
 paginate = 10

@@ -9,7 +9,7 @@ categories: [
     "Terraform",
     "DevOps",
 ]
-draft = true
+draft: true
 ---
 
 The beginning

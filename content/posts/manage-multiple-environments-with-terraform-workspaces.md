@@ -9,7 +9,6 @@ categories: [
     "Terraform",
     "DevOps",
 ]
-draft: true
 ---
 
 The beginning
@@ -21,9 +20,8 @@ For example, if we want to create a small infrastructure in AWS cloud provider:
 
 * a S3 bucket (for terraform)
 * a S3 bucket (for our website)
-* a CloudFront distribution
-
-![AWS infra](/images/aws_infra_basic.png)
+* a S3 bucket (for website logs)
+* a CloudFront distribution (without SSl for this example)
 
 We just need to create some .tf files like this:
 
@@ -37,7 +35,8 @@ output.tf
 
 aws_s3.tf :
 ```
-resource "aws_s3_bucket" "com-scraly-terraform" {
+# s3 bucket for terraform state files
+resource "aws_s3_bucket" "com_scraly_terraform" {
     bucket = "${var.aws_s3_bucket_terraform}"
     acl    = "private"
 
@@ -51,11 +50,141 @@ resource "aws_s3_bucket" "com-scraly-terraform" {
     }
 }
 
+# s3 bucket for front logs
+resource "aws_s3_bucket" "front_logs" {
+  bucket = "${terraform.workspace == "preprod" ? var.bucket_demo_logs_preprod : var.bucket_demo_logs}"
+  acl    = "log-delivery-write"
 
+  tags {
+    Tool    = "${var.tags-tool}"
+    Contact = "${var.tags-contact}"
+  }
+}
+
+# s3 bucket reached by cloudfront
+resource "aws_s3_bucket" "front_bucket" {
+  bucket = "${terraform.workspace == "preprod" ? var.bucket_demo_preprod : var.bucket_demo}"
+  acl    = "private"
+
+  force_destroy = false
+
+  depends_on = ["aws_s3_bucket.front_bucket-logs"]
+
+  versioning {
+    enabled = true
+  }
+
+  logging {
+    target_bucket = "${aws_s3_bucket.front_bucket-logs.bucket}"
+    target_prefix = "root/"
+  }
+
+  website {
+    index_document = "index.html"
+  }
+
+  tags {
+    Tool    = "${var.tags-tool}"
+    Contact = "${var.tags-contact}"
+  }
+
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["GET", "PUT", "POST", "DELETE"]
+    allowed_origins = ["*"]
+  }
+
+  policy = <<POLICY
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+  "Sid": "PublicReadGetObject",
+  "Effect": "Allow",
+  "Principal": "*",
+  "Action": "s3:GetObject",
+  "Resource": "arn:aws:s3:::${terraform.workspace == "preprod" ? var.bucket_demo_preprod : var.bucket_demo}/*"
+}
+]
+}
+POLICY
+}
 ```
 
 aws_cloudfront.tf:
 ```
+resource "aws_cloudfront_distribution" "front_cdn" {
+
+  # Use All Edge Locations (Best Performance)
+  price_class  = "PriceClass_All"
+  http_version = "http2"
+
+  "origin" {
+    origin_id   = "origin-bucket-${aws_s3_bucket.front_bucket.id}"
+    domain_name = "${aws_s3_bucket.front_bucket.website_endpoint}"
+    origin_path = "/root"
+
+    custom_origin_config {
+      origin_protocol_policy = "http-only"
+      http_port              = "80"
+      https_port             = "443"
+      origin_ssl_protocols   = ["TLSv1"]
+    }
+  }
+
+  enabled             = true
+  is_ipv6_enabled     = true
+  default_root_object = "index.html"
+
+  logging_config {
+    include_cookies = true
+    bucket          = "${aws_s3_bucket.front_bucket-logs.bucket}.s3.amazonaws.com"
+    prefix          = "cloudfront/"
+  }
+
+
+  "default_cache_behavior" {
+    allowed_methods = ["GET", "HEAD", "DELETE", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods  = ["GET", "HEAD"]
+
+    "forwarded_values" {
+      query_string = false
+
+      cookies {
+        forward = "none"
+      }
+    }
+
+    min_ttl          = "21600"
+    default_ttl      = "86400"
+    max_ttl          = "31536000"
+    target_origin_id = "origin-bucket-${aws_s3_bucket.front_bucket.id}"
+    // This redirects any HTTP request to HTTPS. Security first!
+    viewer_protocol_policy = "redirect-to-https"
+    compress               = true
+  }
+  "restrictions" {
+    "geo_restriction" {
+      restriction_type = "none"
+    }
+  }
+  # Pre-requisits: Put a SSL cert on AWS store in us-east-1 region
+  # Generate a csr in loacalhost, make requst to IT, get the returned cert
+  # put the cert + intermediate + private key in AWS (click in import button)
+  "viewer_certificate" {
+    # default certificate if you don't already added one in AWS certificate manager
+    cloudfront_default_certificate = true
+    minimum_protocol_version = "TLSv1.1_2016"
+  }
+  aliases = ["${var.demo_domain_name}"]
+
+  depends_on = ["aws_s3_bucket.front_bucket"]
+
+  tags {
+    Tool    = "${var.tags-tool}"
+    Contact = "${var.tags-contact}"
+  }
+}
 
 ```
 
@@ -83,18 +212,52 @@ variable "tags-contact" {
 variable "aws_s3_bucket_terraform" {
     default = "com.scraly.terraform"
 }
+
+variable "bucket_demo" {
+  default = "com.scraly.demo"
+}
+
+variable "bucket_demo_logs" {
+  default = "com.scraly.demo.logs"
+}
+
+variable "bucket_demo_preprod" {
+  default = "com.scraly.demo.preprod.demo"
+}
+
+variable "bucket_demo_logs_preprod" {
+  default = "com.scraly.demo.preprod.demo.logs"
+}
+
+variable "demo_domain_name" {
+  default = "demo.scraly.com"
+}
 ```
 
 output.tf:
 ```
-
+output "cloudfront_id" {
+  value = "${aws_cloudfront_distribution.front_cdn.id}"
+}
 ```
 
 Now we need to initialize terraform (only the first time), generate a plan and apply it.
 
 ```
 $ terraform init
-...
+Initializing the backend...
+
+Initializing provider plugins...
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
 ```
 
 Init command will initialize your working directory which contains .tf configuration files.
@@ -111,14 +274,19 @@ Since terraform v0.11+, instead of doing plan and then apply it, if you are in i
 ```
 $ terraform apply
 ...
-yes
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value:
+  yes
 ...
 
-Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 
 Outputs:
 
-cloudfront_distribution = 123456789
+cloudfront_id = 123456789
 ```
 
 Our infra is created, great. But we work alone, in only one environment.
@@ -143,7 +311,7 @@ terraform {
     region = "eu-central-1"
     bucket = "com.scraly.terraform"
     key = "state.tfstate"
-    encrypt = true
+    encrypt = true    #AES-256 encryption
   }
 }
 ```
@@ -172,7 +340,8 @@ Created and switched to workspace 'prod'
 ```
 
 Select the dev workspace:
-`$ terraform workspaces select dev`
+
+`$ terraform workspace select dev`
 
 List workspaces:
 ```
@@ -197,4 +366,9 @@ env:/
 ```
 
 Perfect, because it's a best practice to separate tfstate per environment.
+
+As you can see in previous .tf files, we can call a variable depending on the current workspace:
+
+`bucket = "${terraform.workspace == "preprod" ? var.bucket_demo_preprod : var.bucket_demo}"`
+
 Like you saw, with terraform workspaces we manage easily several/multiple environments without headaches.

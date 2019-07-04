@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terraform on Scraly tech blog</title>
+    <link>https://scraly.github.io/categories/terraform/</link>
+    <description>Recent content in Terraform on Scraly tech blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; &lt;a href=&#34;http://scraly.com&#34;&gt;Aurélie Vache&lt;/a&gt; 2018</copyright>
+    <lastBuildDate>Sat, 05 May 2018 16:09:09 +0200</lastBuildDate>
+    
+	<atom:link href="https://scraly.github.io/categories/terraform/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Manage Multiple Environments With Terraform Workspaces</title>
+      <link>https://scraly.github.io/posts/manage-multiple-environments-with-terraform-workspaces/</link>
+      <pubDate>Sat, 05 May 2018 16:09:09 +0200</pubDate>
+      
+      <guid>https://scraly.github.io/posts/manage-multiple-environments-with-terraform-workspaces/</guid>
+      <description>The beginning When you want to manage (create, modify and remove) your infrastructure, getting started with Terraform is easy. Just create files ending with .tf containing the description of the resources you want to have.
+For example, if we want to create a small infrastructure in AWS cloud provider:
+ a S3 bucket (for terraform) a S3 bucket (for our website) a S3 bucket (for website logs) a CloudFront distribution (without SSl for this example)  We just need to create some .</description>
+    </item>
+    
+  </channel>
+</rss>

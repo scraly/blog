@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>imposter on Scraly tech blog</title>
+    <link>https://scraly.github.io/tags/imposter/</link>
+    <description>Recent content in imposter on Scraly tech blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; &lt;a href=&#34;http://scraly.com&#34;&gt;Aurélie Vache&lt;/a&gt; 2018</copyright>
+    <lastBuildDate>Thu, 04 Jul 2019 12:20:42 +0200</lastBuildDate>
+    
+	<atom:link href="https://scraly.github.io/tags/imposter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Le syndrome de l&#39;imposteur, kezako ?</title>
+      <link>https://scraly.github.io/posts/syndrome-imposteur/</link>
+      <pubDate>Thu, 04 Jul 2019 12:20:42 +0200</pubDate>
+      
+      <guid>https://scraly.github.io/posts/syndrome-imposteur/</guid>
+      <description>Cet article est un transcript du talk éponyme que j&amp;rsquo;ai donné à Riviera Dev à Nice le 16 mai 2019 et au VoxxedDays Luxembourg le 22 juin 2019.
+*ajouter photo**
+Le talk à été filmé au Luxembourg, vous pouvez donc le visionner sur YouTube : https://www.youtube.com/watch?v=tvEVD4DyzpY&amp;amp;list=PL4PrrYCV-zckgY1yENIyftKU6AtF4kqkt
+Les slides sont également en ligne : http://bit.ly/syndrome-imposteur-kezako
+Le principe de ce transcript est simple : je met d&amp;rsquo;abord la slide puis en-dessous le texte/le speech associé.</description>
+    </item>
+    
+  </channel>
+</rss>

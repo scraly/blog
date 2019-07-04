@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on Scraly tech blog</title>
+    <link>https://scraly.github.io/categories/golang/</link>
+    <description>Recent content in Golang on Scraly tech blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; &lt;a href=&#34;http://scraly.com&#34;&gt;Aurélie Vache&lt;/a&gt; 2018</copyright>
+    <lastBuildDate>Thu, 03 May 2018 07:36:32 +0200</lastBuildDate>
+    
+	<atom:link href="https://scraly.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Struggle With Librdkafka</title>
+      <link>https://scraly.github.io/posts/struggle-with-librdkafka/</link>
+      <pubDate>Thu, 03 May 2018 07:36:32 +0200</pubDate>
+      
+      <guid>https://scraly.github.io/posts/struggle-with-librdkafka/</guid>
+      <description>The beginning For an event driven microservice project in golang that was supposed to communicate with the Kafka message broker, among other things, I decided to use the confluent kafka go client. To connect to a Kafka and create a producer and / or a consumer, the grip is super fast. Perfect. Ah &amp;hellip; but you have to use a librdkafka library. Whats is that?
+ librdkafka is the Apache Kafka C/C++ library.</description>
+    </item>
+    
+  </channel>
+</rss>

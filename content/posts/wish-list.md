@@ -24,8 +24,8 @@ When I grow up, I would like:
 
 * give a talk / be a speaker at a meetup (:white_check_mark:)
 * give a talk in a medium conference event (:white_check_mark:)
-* give a talk in a big conference event
-* give a talk in an International conference event
+* give a talk in a big conference event (:white_check_mark:)
+* give a talk in an International conference event (:white_check_mark:)
 * write a tech book
 
 It was not an easy decision to give a talk in public, to start as a "speaker". When you are asked repeatedly why you will not go, despite the hundreds of arguments that I had to never speak in public, this benevolence in the team of organizers of the TDS (special dedication and thanks to [Leonardo Noleto](https://twitter.com/leonardo_noleto) and [Alexia Audevart](https://twitter.com/aaudevart)) made me answer yes and I started.

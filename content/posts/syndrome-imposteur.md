@@ -14,7 +14,7 @@ categories: [
 
 Cet article est un transcript du talk éponyme que j'ai donné à [Riviera Dev](https://rivieradev.fr/session/626) à Nice le 16 mai 2019 et au [VoxxedDays Luxembourg](https://cfp-voxxed-lux.yajug.org/talk/NXT-1171/Le_syndrome_de_l'imposteur,_kezako_%3F) le 22 juin 2019.
 
-*ajouter photo**
+![Le syndrome de l'imposteur - riviera dev](/images/aurelie.jpg)
 
 Le talk à été filmé au Luxembourg, vous pouvez donc le visionner sur YouTube :
 https://www.youtube.com/watch?v=tvEVD4DyzpY&list=PL4PrrYCV-zckgY1yENIyftKU6AtF4kqkt
@@ -115,7 +115,7 @@ Règle numéro 1 : Des connaissances, des compétences, des victoires, tu as.
 
 ![Le syndrome de l'imposteur - 18eme slide](/images/Syndrome_imposteur_18.png)
 
-Nous sommes très doué, en tant qu’humain, pour nous auto flageller, mais bcp moins pour nous trouver des qualités.
+Nous sommes très doué, en tant qu’humain, pour nous auto flageller, mais beaucoup moins pour nous trouver des qualités.
 
 Vous pouvez commencer par lister toutes les choses accomplies, les connaissances et compétences apprises jusqu’à maintenant. Repensez aux journées où vous avez galéré à débuguer un problème et vous êtes parvenues à trouver la solution. 
 
@@ -242,7 +242,7 @@ Et il y a une citation de Nelson Mandela que j’ aime tout particulièrement : 
 
 Et c’est vrai, on apprend de nos expériences. 
 
-![Le syndrome de l'imposteur - 39eme slide](/images/Syndrome_imposteur_39.png)
+![Le syndrome de l'imposteur - 39eme slide](/images/Syndrome_imposteur_avantages.png)
 
 Ce que ce syndrome vous apporte est ...
 

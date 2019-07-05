@@ -1,10 +1,10 @@
 [submodule "themes/bootstrap"]
 	path = themes/bootstrap
 	url = https://github.com/Xzya/hugo-bootstrap.git
+[submodule "themes/hemingway"]
+	path = themes/hemingway
+	url = https://github.com/tanksuzuki/hemingway.git
 [submodule "public"]
 	path = public
 	url = git@github.com:scraly/scraly.github.io.git
 	branch = master
-[submodule "themes/hemingway"]
-	path = themes/hemingway
-	url = https://github.com/tanksuzuki/hemingway.git
